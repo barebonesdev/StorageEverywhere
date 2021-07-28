@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0-windows10.0.19041</TargetFramework>
+    <AssemblyName>StorageEverywhere</AssemblyName>
+    <DefineConstants>$(DefineConstants);NETFX_CORE</DefineConstants>
+  </PropertyGroup>
+
+  <Import Project="..\Src\StorageEverywhere.Shared\StorageEverywhere.Shared.projitems" Label="Shared" />
+
+  <ItemGroup>
+    <ProjectReference Include="..\Src\StorageEverywhere.Abstractions\StorageEverywhere.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>
