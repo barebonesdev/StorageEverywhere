@@ -24,8 +24,13 @@ namespace StorageEverywhere
                 //var localAppData = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
 #if ANDROID
                 var localAppData = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                // In .NET 8 this started returning $HOME/Documents whereas in .NET 7 and earlier it was just $HOME, so revert it back to just $HOME for compat purposes.
+                // https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/8.0/getfolderpath-unix
+                localAppData = Path.Combine(localAppData, "..");
 #elif IOS
                 var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
                 var localAppData = Path.Combine(documents, "..", "Library");
 #else
                 var localAppData = System.Windows.Forms.Application.LocalUserAppDataPath;

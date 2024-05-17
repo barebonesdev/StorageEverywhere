@@ -1,37 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-      <id>StorageEverywhere</id>
-      <version>1.0.0</version>
-      <title>StorageEverywhere - Portable Storage APIs</title>
-      <authors>Yunus Efendi</authors>
+      <id>StorageEverywhereIncludingiOS</id>
+      <version>3.0.4</version>
+      <title>StorageEverywhere - Portable Storage APIs, including iOS fix and .NET 8</title>
+      <authors>Yunus Efendi,Andrew Leader</authors>
       <owners>Yunus Efendi</owners>
-      <projectUrl>https://github.com/5yunus2efendi/StorageEverywhere</projectUrl>
+      <projectUrl>https://github.com/barebonesdev/StorageEverywhere</projectUrl>
       <requireLicenseAcceptance>false</requireLicenseAcceptance>
-      <description>StorageEverywhere provides a consistent, portable set of local file IO APIs for .NET 45, UWP, Xamarin.iOS, Xamarin.Android.  This makes it easier to create cross-platform .NET libraries and apps.</description>
-      <summary>Cross platform storage for Xamarin.iOS, Xamarin.Android, Xamarin.Mac, Xamarin.Forms, and Windows .NET45</summary>
+      <description>Fixed package that works on iOS. StorageEverywhere provides a consistent, portable set of local file IO APIs for UWP, Xamarin.iOS, Xamarin.Android.  This makes it easier to create cross-platform .NET libraries and apps. 3.0.0 is updated to work with iOS .NET 8.</description>
+      <summary>Cross platform storage for Xamarin.iOS, Xamarin.Android, and UWP.</summary>
       <tags>xamarin, pcl, pclstorage xamarin, xam.pcl, netstandard, plugin for xamarin, plugin, storage, pclstorage, android, xamarin.forms, ios, monoandroid, monodroid, monotouch, net45</tags>
     </metadata>
     <files>
       <!-- Core.NETStandard -->
-      <file src="..\Src\StorageEverywhere\bin\Release\netstandard1.0\StorageEverywhere.*" target="lib\netstandard1.0" />
-      <file src="..\Src\StorageEverywhere.Abstractions\bin\Release\netstandard1.0\StorageEverywhere.*" target="lib\netstandard1.0"/>
-      
-      <!-- NET 4.5-->
-      <file src="..\src\StorageEverywhere.NET45\bin\Release\StorageEverywhere.*" target="lib\net45" />
-      <file src="..\Src\StorageEverywhere.Abstractions\bin\Release\netstandard1.0\StorageEverywhere.*" target="lib\net45"/>
+      <file src="..\Src\StorageEverywhere\bin\Release\netstandard2.0\StorageEverywhere.*" target="lib\netstandard2.0" />
+      <file src="..\Src\StorageEverywhere.Abstractions\bin\Release\netstandard2.0\StorageEverywhere.*" target="lib\netstandard2.0"/>
 
       <!-- UWP -->
       <file src="..\src\StorageEverywhere.UWP\bin\Release\StorageEverywhere.*" target="lib\UAP10.0" />
-      <file src="..\Src\StorageEverywhere.Abstractions\bin\Release\netstandard1.0\StorageEverywhere.*" target="lib\UAP10.0"/>
+      <file src="..\Src\StorageEverywhere.Abstractions\bin\Release\netstandard2.0\StorageEverywhere.*" target="lib\UAP10.0"/>
 
       <!-- Android -->
-      <file src="..\src\StorageEverywhere.Android\bin\Release\StorageEverywhere.*" target="lib\monoandroid" />
-      <file src="..\Src\StorageEverywhere.Abstractions\bin\Release\netstandard1.0\StorageEverywhere.*" target="lib\monoandroid"/>
+      <file src="..\src\StorageEverywhere.Android\bin\Release\net8.0-android\StorageEverywhere.*" target="lib\net8.0-android21" />
+      <file src="..\Src\StorageEverywhere.Abstractions\bin\Release\netstandard2.0\StorageEverywhere.*" target="lib\net8.0-android21"/>
 
       <!-- iOS -->
-      <file src="..\src\StorageEverywhere.iOS\bin\Release\StorageEverywhere.*" target="lib\monotouch" />
-      <file src="..\Src\StorageEverywhere.Abstractions\bin\Release\netstandard1.0\StorageEverywhere.*" target="lib\monotouch"/>
+      <file src="..\src\StorageEverywhere.iOS\bin\Release\net8.0-ios\StorageEverywhere.dll" target="lib\net8.0-ios10" />
+	  <file src="..\src\StorageEverywhere.iOS\bin\Release\net8.0-ios\StorageEverywhere.pdb" target="lib\net8.0-ios10" />
+	  <file src="..\Src\StorageEverywhere.Abstractions\bin\Release\netstandard2.0\StorageEverywhere.*" target="lib\net8.0-ios10"/>
 
     </files>
 </package>
