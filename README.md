@@ -1,6 +1,6 @@
 ## StorageEverywhere
 
-This plugin is ported from [PCLStorage](https://github.com/dsplaisted/PCLStorage/blob/master/README.md), because I need this plugin to work with .NET Standard.
+This plugin is ported from [PCLStorage](https://github.com/dsplaisted/PCLStorage/blob/master/README.md), because I need this plugin to work with .NET Standard, and has also been updated for .NET 10 UWP.
 
 **Supported Platforms**
 
@@ -11,7 +11,7 @@ This plugin is ported from [PCLStorage](https://github.com/dsplaisted/PCLStorage
 |Android|
 |iOS|
 |WPF .NET 4.5|
-|UWP|
+|.NET 10 UWP|
 
 **Installation**
 

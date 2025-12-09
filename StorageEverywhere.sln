@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.8.34309.116
+# Visual Studio Version 18
+VisualStudioVersion = 18.0.11222.15 d18.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StorageEverywhere", "Src\StorageEverywhere\StorageEverywhere.csproj", "{48553A1E-2A6C-463C-8E09-38CB680AE29C}"
 EndProject
@@ -130,7 +130,7 @@ Global
 		Src\StorageEverywhere.NET45_Android_IOS.Shared\StorageEverywhere.NET45_Android_IOS.Shared.projitems*{054f1440-0f44-4ac9-8044-3d6aa7d85eaa}*SharedItemsImports = 5
 		Src\StorageEverywhere.Shared\StorageEverywhere.Shared.projitems*{054f1440-0f44-4ac9-8044-3d6aa7d85eaa}*SharedItemsImports = 5
 		Src\StorageEverywhere.Shared\StorageEverywhere.Shared.projitems*{48553a1e-2a6c-463c-8e09-38cb680ae29c}*SharedItemsImports = 5
-		Src\StorageEverywhere.Shared\StorageEverywhere.Shared.projitems*{69911a2d-ac84-4e58-8ae8-8e0a74c28e63}*SharedItemsImports = 4
+		Src\StorageEverywhere.Shared\StorageEverywhere.Shared.projitems*{69911a2d-ac84-4e58-8ae8-8e0a74c28e63}*SharedItemsImports = 5
 		Src\StorageEverywhere.Shared\StorageEverywhere.Shared.projitems*{7be32ded-4a16-46cd-ab09-7ce00b33e7e1}*SharedItemsImports = 13
 		Src\StorageEverywhere.NET45_Android_IOS.Shared\StorageEverywhere.NET45_Android_IOS.Shared.projitems*{b713bd5b-0798-4c9a-a8a1-5e05f623d519}*SharedItemsImports = 5
 		Src\StorageEverywhere.Shared\StorageEverywhere.Shared.projitems*{b713bd5b-0798-4c9a-a8a1-5e05f623d519}*SharedItemsImports = 5
