@@ -2,6 +2,8 @@
 
 This plugin is ported from [PCLStorage](https://github.com/dsplaisted/PCLStorage/blob/master/README.md), because I need this plugin to work with .NET Standard, and has also been updated for .NET 10 UWP.
 
+To publish to NuGet, I increment the version number in the nuspec file, locally build the solution in release, and then run the Build.bat script in the Build folder, and manually upload it to NuGet.
+
 **Supported Platforms**
 
 
