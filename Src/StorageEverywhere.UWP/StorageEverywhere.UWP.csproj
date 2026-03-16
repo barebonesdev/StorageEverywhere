@@ -19,5 +19,9 @@
   <ItemGroup>
     <ProjectReference Include="..\StorageEverywhere.Abstractions\StorageEverywhere.Abstractions.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\StorageEverywhere.NET45_Android_IOS.Shared\FileSystemFile.cs" Link="FileSystemFile.cs" />
+    <Compile Include="..\StorageEverywhere.NET45_Android_IOS.Shared\FileSystemFolder.cs" Link="FileSystemFolder.cs" />
+  </ItemGroup>
   <Import Project="..\StorageEverywhere.Shared\StorageEverywhere.Shared.projitems" Label="Shared" />
 </Project>

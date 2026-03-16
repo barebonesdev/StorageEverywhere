@@ -2,8 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
       <id>StorageEverywhereIncludingiOS</id>
-      <version>10.0.0</version>
-      <title>StorageEverywhere - Portable Storage APIs, including iOS fix and .NET 10 (with UWP .NET 10 too)</title>
+      <version>10.0.1</version>
+      <title>StorageEverywhere - Portable Storage APIs, including iOS fix and .NET 10 (with UWP .NET 10 too, uses .NET file system)</title>
       <authors>Yunus Efendi,Andrew Leader</authors>
       <owners>Yunus Efendi</owners>
       <projectUrl>https://github.com/barebonesdev/StorageEverywhere</projectUrl>

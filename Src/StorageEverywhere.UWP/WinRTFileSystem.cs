@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using Windows.Storage;
@@ -10,19 +7,10 @@ using Windows.Storage;
 namespace StorageEverywhere
 {
     /// <summary>
-    /// Implementation of <see cref="IFileSystem"/> over WinRT Storage APIs
+    /// Implementation of <see cref="IFileSystem"/> over standard .NET file I/O APIs for UWP
     /// </summary>
     public class WinRTFileSystem : IFileSystem
     {
-        Windows.Storage.ApplicationData _applicationData;
-
-        /// <summary>
-        /// Creates a new instance of <see cref="WinRTFileSystem"/>
-        /// </summary>
-        public WinRTFileSystem()
-        {
-            _applicationData = ApplicationData.Current;
-        }
         /// <summary>
         /// A folder representing storage which is local to the current device
         /// </summary>
@@ -30,7 +18,7 @@ namespace StorageEverywhere
         {
             get
             {
-                return new WinRTFolder(_applicationData.LocalFolder);
+                return new FileSystemFolder(ApplicationData.Current.LocalFolder.Path);
             }
         }
 
@@ -41,11 +29,7 @@ namespace StorageEverywhere
         {
             get
             {
-#if WINDOWS_PHONE
-                return null;
-#else
-                return new WinRTFolder(_applicationData.RoamingFolder);
-#endif
+                return new FileSystemFolder(ApplicationData.Current.RoamingFolder.Path);
             }
         }
 
@@ -59,17 +43,14 @@ namespace StorageEverywhere
         {
             Requires.NotNullOrEmpty(path, "path");
 
-            StorageFile storageFile;
-            try
+            await AwaitExtensions.SwitchOffMainThreadAsync(cancellationToken);
+
+            if (File.Exists(path))
             {
-                storageFile = await StorageFile.GetFileFromPathAsync(path).AsTask(cancellationToken).ConfigureAwait(false);
-            }
-            catch (FileNotFoundException)
-            {
-                return null;
+                return new FileSystemFile(path);
             }
 
-            return new WinRTFile(storageFile);
+            return null;
         }
 
         /// <summary>
@@ -82,17 +63,14 @@ namespace StorageEverywhere
         {
             Requires.NotNullOrEmpty(path, "path");
 
-            StorageFolder storageFolder;
-            try
+            await AwaitExtensions.SwitchOffMainThreadAsync(cancellationToken);
+
+            if (Directory.Exists(path))
             {
-                storageFolder = await StorageFolder.GetFolderFromPathAsync(path).AsTask(cancellationToken).ConfigureAwait(false);
-            }
-            catch (FileNotFoundException)
-            {
-                return null;
+                return new FileSystemFolder(path, true);
             }
 
-            return new WinRTFolder(storageFolder);
+            return null;
         }
     }
 }
