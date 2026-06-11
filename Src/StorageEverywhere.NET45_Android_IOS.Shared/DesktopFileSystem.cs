@@ -28,6 +28,14 @@ namespace StorageEverywhere
                 // In .NET 8 this started returning $HOME/Documents whereas in .NET 7 and earlier it was just $HOME, so revert it back to just $HOME for compat purposes.
                 // https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/8.0/getfolderpath-unix
                 localAppData = Path.Combine(localAppData, "..");
+#elif __MACCATALYST__
+                // Use Foundation directly to get the sandboxed Library directory, since
+                // Environment.SpecialFolder paths on macOS can point outside the sandbox
+                // container if the app is not fully sandboxed (e.g. certain dev scenarios).
+                var libraryUrls = Foundation.NSFileManager.DefaultManager.GetUrls(
+                    Foundation.NSSearchPathDirectory.LibraryDirectory,
+                    Foundation.NSSearchPathDomain.User);
+                var localAppData = libraryUrls[0].Path;
 #elif IOS
                 var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
@@ -46,7 +54,7 @@ namespace StorageEverywhere
         {
             get
             {
-#if ANDROID || IOS
+#if ANDROID || IOS || __MACCATALYST__
                 return null;
 #else
                 //  SpecialFolder.ApplicationData is not app-specific, so use the Windows Forms API to get the app data path
