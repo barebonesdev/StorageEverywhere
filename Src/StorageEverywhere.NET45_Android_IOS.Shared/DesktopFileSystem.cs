@@ -29,13 +29,17 @@ namespace StorageEverywhere
                 // https://learn.microsoft.com/en-us/dotnet/core/compatibility/core-libraries/8.0/getfolderpath-unix
                 localAppData = Path.Combine(localAppData, "..");
 #elif __MACCATALYST__
-                // Use Foundation directly to get the sandboxed Library directory, since
-                // Environment.SpecialFolder paths on macOS can point outside the sandbox
-                // container if the app is not fully sandboxed (e.g. certain dev scenarios).
-                var libraryUrls = Foundation.NSFileManager.DefaultManager.GetUrls(
-                    Foundation.NSSearchPathDirectory.LibraryDirectory,
+                // Use Application Support/<BundleID> which is app-specific in both
+                // sandboxed (App Store) and unsandboxed (development) scenarios.
+                // In sandboxed builds NSFileManager already scopes to the container;
+                // in unsandboxed dev builds ~/Library/Application Support is shared so
+                // we append the bundle ID to keep paths app-specific.
+                var appSupportUrls = Foundation.NSFileManager.DefaultManager.GetUrls(
+                    Foundation.NSSearchPathDirectory.ApplicationSupportDirectory,
                     Foundation.NSSearchPathDomain.User);
-                var localAppData = libraryUrls[0].Path;
+                var bundleId = Foundation.NSBundle.MainBundle.BundleIdentifier ?? "StorageEverywhere";
+                var localAppData = System.IO.Path.Combine(appSupportUrls[0].Path, bundleId);
+                Directory.CreateDirectory(localAppData);
 #elif IOS
                 var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
 
