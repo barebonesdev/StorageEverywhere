@@ -11,7 +11,7 @@ To publish to NuGet, I increment the version number in the nuspec file, locally 
 |---------|
 |.NET Standard 1.0|
 |Android|
-|iOS|
+|iOS and Mac Catalyst|
 |WPF .NET 4.5|
 |.NET 10 UWP|
 
